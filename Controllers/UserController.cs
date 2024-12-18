@@ -119,4 +119,11 @@ public class UserController : Controller
             userlist.Remove(user);
             return RedirectToAction(nameof(Index));
         }
+
+        // GET: User/Search
+        public IActionResult Search(string name)
+        {
+            var result = userlist.Where(u => u.Name.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
+            return View("Index", result);
+        }
 }
