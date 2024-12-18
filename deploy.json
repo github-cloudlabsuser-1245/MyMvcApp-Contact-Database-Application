@@ -22,7 +22,15 @@
           "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
         ],
         "properties": {
-          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
+          "siteConfig": {
+            "appSettings": [
+              {
+                "name": "WEBSITE_RUN_FROM_PACKAGE",
+                "value": "1"
+              }
+            ]
+          }
         }
       }
     ],
